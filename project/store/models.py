@@ -69,3 +69,19 @@ class Phone(models.Model):
 
     def __str__(self) -> str:
         return f'{self.type} {self.color} {self.date}'
+    
+class Phone_case(models.Model):
+
+    id = models.SmallAutoField(primary_key=True)
+    model = models.CharField(max_length=30, blank=False, help_text='модель чехла для телефона')
+    color = models.CharField(max_length=30, blank=False, help_text='цвет чехла')
+    material = models.CharField(max_length=30, blank=False, help_text='материал чехла')
+    price = models.IntegerField(blank=False)
+
+    class Meta():
+        db_table = 'phone case'
+        db_table_comment = 'table about phone case'
+
+    def __str__(self) -> str:
+        return f'{self.model} {self.color} {self.material} {self.price}'
+    
