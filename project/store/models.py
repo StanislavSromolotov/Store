@@ -71,6 +71,7 @@ class Phone(models.Model):
     def __str__(self) -> str:
         return f'{self.phone_model} {self.color} {self.price}'
     
+
 class Phone_case(models.Model):
 
     id = models.SmallAutoField(primary_key=True)
@@ -86,7 +87,14 @@ class Phone_case(models.Model):
     def __str__(self) -> str:
         return f'{self.model} {self.color} {self.material} {self.price}'
     
+
 class Orders_phone(models.Model):
 
     orders_fk = models.ManyToManyField(Orders)
     phone_fk = models.ManyToManyField(Phone)
+
+
+class Orders_phone_case(models.Model):
+
+    orders_fk = models.ManyToManyField(Orders)
+    phone_case_fk = models.ManyToManyField(Phone_case)
