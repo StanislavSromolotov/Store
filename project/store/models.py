@@ -86,3 +86,7 @@ class Phone_case(models.Model):
     def __str__(self) -> str:
         return f'{self.model} {self.color} {self.material} {self.price}'
     
+class Orders_phone(models.Model):
+
+    orders_fk = models.ManyToManyField(Orders)
+    phone_fk = models.ManyToManyField(Phone)
