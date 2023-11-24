@@ -48,6 +48,7 @@ class Phone(models.Model):
         ]
     os = models.CharField(max_length=30, blank=False, choices=PHONE_OS)
     version_os = models.CharField(max_length=30, blank=False)
+    phone_model = models.CharField(max_length=30, blank=False)
     cpu = models.CharField(max_length=30, blank=False, help_text='процессор')
     number_cores = models.IntegerField(blank=False, help_text='кол-во ядер поцессора')
     processor_power = models.IntegerField(blank=False, help_text='разрядность процессора')
@@ -68,7 +69,7 @@ class Phone(models.Model):
         db_table_comment = 'table about phone'
 
     def __str__(self) -> str:
-        return f'{self.type} {self.color} {self.date}'
+        return f'{self.phone_model} {self.color} {self.price}'
     
 class Phone_case(models.Model):
 
