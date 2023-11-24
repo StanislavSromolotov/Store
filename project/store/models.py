@@ -69,10 +69,7 @@ class Phone(models.Model):
         db_table_comment = 'table about phone'
 
     def __str__(self) -> str:
-<<<<<<< HEAD
         return f'{self.model} {self.color} {self.price}'
-=======
-        return f'{self.type} {self.color} {self.date}'
     
 class Phone_case(models.Model):
 
@@ -88,5 +85,9 @@ class Phone_case(models.Model):
 
     def __str__(self) -> str:
         return f'{self.model} {self.color} {self.material} {self.price}'
-    
->>>>>>> fbaa402d92f59cb6f00c0259e403d1d539f0ff0a
+
+
+class Orders_phone(models.Model):
+
+    orders_fk = models.ManyToManyField(Orders)
+    phone_fk = models.ManyToManyField(Phone)
