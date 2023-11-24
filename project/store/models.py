@@ -17,3 +17,16 @@ class Customer(models.Model):
     def __str__(self):
         return f'Customer: {self.name} {self.phone}'
     
+class Orders(models.Model):
+
+    id = models.SmallAutoField(primary_key=True)
+    date = models.DateTimeField(blank=False)
+    sum_total = models.IntegerField(blank=False)
+    customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE)
+
+    class Meta():
+        db_table = 'orders'
+        db_table_comment = 'table about orders'
+
+    def __str__(self) -> str:
+        return f'{self.customer_id} {self.sum_total} {self.date}'
