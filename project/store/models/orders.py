@@ -10,8 +10,5 @@ class Orders(models.Model):
     sum_total = models.IntegerField(blank=False)
     customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE)
 
-    class Meta:
-        app_label = "store"
-
     def __str__(self) -> str:
         return f'{self.customer_id} {self.sum_total} {self.date}'
