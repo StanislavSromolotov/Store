@@ -1,5 +1,6 @@
 from django.db import models
 
+
 PHONE_TYPE = [
     ('smartphone', 'Смартфон'),
     ('push_button_telephone', 'Кнопочный телефон')
