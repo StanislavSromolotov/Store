@@ -1,20 +1,20 @@
 from django.db import models
 
+PHONE_TYPE = [
+    ('smartphone', 'Смартфон'),
+    ('push_button_telephone', 'Кнопочный телефон')
+]
+
+PHONE_OS = [
+    ('android', 'Android'),
+    ('ios', 'iOS')
+]
+
 
 class Phone(models.Model):
 
     id = models.SmallAutoField(primary_key=True, unique=True)
-
-    PHONE_TYPE = [
-        ('smartphone', 'Смартфон'),
-        ('push_button_telephone', 'Кнопочный телефон')
-    ]
     type = models.CharField(max_length=30, blank=False, choices=PHONE_TYPE)
-
-    PHONE_OS = [
-        ('android', 'Android'),
-        ('ios', 'iOS')
-    ]
     os = models.CharField(max_length=30, blank=False, choices=PHONE_OS)
     version_os = models.CharField(max_length=30, blank=False)
     phone_model = models.CharField(max_length=30, blank=False)
