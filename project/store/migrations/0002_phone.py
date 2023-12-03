@@ -4,12 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
+    create_tb_orders_phone
     dependencies = [
         ("store", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
+        create_tb_orders_phone
             name="Phone",
             fields=[
                 (

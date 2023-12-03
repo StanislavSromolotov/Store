@@ -3,8 +3,8 @@ from django.db import models
 from .customer import Customer
 from .phone import Phone
 from .phone_case import Phone_case
-
-
+ 
+  
 class Orders(models.Model):
     id = models.SmallAutoField(primary_key=True, unique=True)
     date = models.DateTimeField(blank=False)

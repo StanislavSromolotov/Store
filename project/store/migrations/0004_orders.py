@@ -5,12 +5,14 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
+    create_tb_orders_phone
     dependencies = [
         ("store", "0003_phone_case"),
     ]
 
     operations = [
         migrations.CreateModel(
+        create_tb_orders_phone
             name="Orders",
             fields=[
                 (
