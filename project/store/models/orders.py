@@ -4,8 +4,8 @@ from .customer import Customer
 from .phone import Phone
 from .phone_case import Phone_case
 
-class Orders(models.Model):
 
+class Orders(models.Model):
     id = models.SmallAutoField(primary_key=True, unique=True)
     date = models.DateTimeField(blank=False)
     sum_total = models.IntegerField(blank=False)
@@ -14,4 +14,4 @@ class Orders(models.Model):
     phone_cases = models.ManyToManyField(Phone_case)
 
     def __str__(self) -> str:
-        return f'{self.customer_id} {self.sum_total} {self.date}'
+        return f"{self.customer_id} {self.sum_total} {self.date}"
