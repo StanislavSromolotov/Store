@@ -1,0 +1,12 @@
+[tool.black]
+line-length = 79
+skip-string-normalization = 1
+exclude = '''
+/(
+    .git
+| .github
+| .vscode
+| my_venv
+| project//basic
+)/
+'''

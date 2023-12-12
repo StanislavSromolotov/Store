@@ -1,0 +1,28 @@
+name: Python CI/CD for Store
+on:
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  lint:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Set up Python 3.10.5
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10.5"
+        architecture: 'x64'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install -r requirements.txt
+
+    - name: Run black
+      run: python.exe -m black --verbose --config .\.black .\project\store\
+
+    - name: Lint flake8
+      run: python.exe -m flake8 --count --config .\.flake8
