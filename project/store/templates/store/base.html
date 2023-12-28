@@ -1,18 +1,15 @@
-{% extends "store/base.html" %}
-
-{% block content %}
-    <h2>My store</h2>
-{% endblock %}
-
-
 <!DOCTYPE html>
 <html>
+
     <head>
         <title>{{ title }}</title>
         <meta charset="utf-8" />
+        {% block css %} {% endblock %}
     </head>
 
     <body>
-
+        {% block content %} {% endblock %}
+        {% block footer %} {% endblock %}
     </body>
+
 </html>

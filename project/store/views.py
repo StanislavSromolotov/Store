@@ -1,26 +1,42 @@
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
 from django.template.response import TemplateResponse
-
-
-# Create your views here.
-# def is_my_store(request, my_store):
-#     if my_store.startswith('my_store'):
-#         return HttpResponse("Hello, world. You're at the polls index.")
-#     else:
-#         return HttpResponseNotFound(f'Ошибка - {my_store}', status=404)
-
-# def post_list(request):
-#     return render(request, '//templates//store//post_list.html', {})
+from store.models.customer import Customer
+from store.models.orders import Orders
+from store.models.phone import Phone
+from store.models.phone_case import Phone_case
 
 
 def store(request):
-    return TemplateResponse(request, "store/mystore.html")
+    context = {
+        "title": "My store",
+        "customer": Customer.objects.all(),
+    }
+    return TemplateResponse(request, "store/mystore.html", context=context)
 
 
 def cases(request):
-    return TemplateResponse(request, "store/cases.html")
+    context = {
+        "title": "Cases",
+        "customer": Customer.objects.all(),
+        "cases": Phone_case.objects.all(),
+    }
+    return TemplateResponse(request, "store/cases.html", context=context)
 
 
 def phones(request):
-    return TemplateResponse(request, "store/phones.html")
+    context = {
+        "title": "Phones",
+        "customer": Customer.objects.all(),
+        "phones": Phone.objects.all(),
+    }
+    return TemplateResponse(request, "store/phones.html", context=context)
+
+
+def basket(request):
+    context = {
+        "title": "Basket",
+        "customer": Customer.objects.all(),
+        "basket": Orders.objects.all(),
+    }
+    return TemplateResponse(request, "store/basket.html", context=context)
