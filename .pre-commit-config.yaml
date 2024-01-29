@@ -26,6 +26,7 @@ repos:
     rev: 6.1.0
     hooks:
       - id: flake8
+        args: [--config=.\.flake8]
         # exclude: project/basic
         # line-length: 100
-        config: .\.flake8
+        # config=\.flake8
