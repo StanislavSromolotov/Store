@@ -1,15 +1,16 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 
     <head>
         <title>{{ title }}</title>
         <meta charset="utf-8" />
-        {% block css %} {% endblock %}
+        {% block css %} {% endblock css %}
     </head>
 
     <body>
-        {% block content %} {% endblock %}
-        {% block footer %} {% endblock %}
+        {% block content %} {% endblock content %}
+        {% block footer %} {% endblock footer %}
     </body>
 
 </html>
