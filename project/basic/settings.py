@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "debug_toolbar",
     "store",
 ]
 
@@ -52,6 +53,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "basic.urls"
@@ -122,10 +124,19 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
-STATICFILES_DIRS = []
-# STATICFILES_DIRS = [
+
+# выносится папка static на уровень папки проекта, для использования в нескольких проектах
+# STATICFILES_DIRS:list[Path] = [
 #     BASE_DIR / 'project/store/static',
 # ]
+
+MEDIA_URL = "media/"
+
+MEDIA_ROOT = BASE_DIR / "media"
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
