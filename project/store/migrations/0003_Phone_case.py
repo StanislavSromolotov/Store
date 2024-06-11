@@ -19,6 +19,15 @@ class Migration(migrations.Migration):
                     ),
                 ),
                 (
+                    "image",
+                    models.ImageField(
+                        upload_to="goods_images",
+                        blank=True,
+                        null=True,
+                        verbose_name="Image",
+                    ),
+                ),
+                (
                     "model",
                     models.CharField(
                         help_text="модель чехла для телефона", max_length=30

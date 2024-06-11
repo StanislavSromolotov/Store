@@ -6,6 +6,6 @@ from store.models.phone_case import Phone_case
 
 
 admin.site.register(Customer)
-# admin.site.register(Orders)
+admin.site.register(Orders)
 admin.site.register(Phone_case)
 admin.site.register(Phone)
