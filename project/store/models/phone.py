@@ -11,6 +11,9 @@ PHONE_OS = [("android", "Android"), ("ios", "iOS")]
 
 class Phone(models.Model):
     id = models.SmallAutoField(primary_key=True, unique=True)
+    image = models.ImageField(
+        upload_to="store_images", blank=True, null=True, verbose_name="Image"
+    )
     type = models.CharField(max_length=30, blank=False, choices=PHONE_TYPE)
     os = models.CharField(max_length=30, blank=False, choices=PHONE_OS)
     version_os = models.CharField(max_length=30, blank=False)
